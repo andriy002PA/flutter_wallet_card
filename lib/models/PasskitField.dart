@@ -4,8 +4,8 @@ class PasskitField extends Equatable {
   /// Required. The key must be unique within the scope of the entire pass. For example, “departure-gate.”
   final String key;
 
-  /// Required. Value of the field, for example, 42.
-  final String value;
+  ///  Value of the field, for example, 42.
+  final String? value;
 
   /// Optional. Label text for the field.
   final String? label;
@@ -18,7 +18,7 @@ class PasskitField extends Equatable {
 
   PasskitField({
     required this.key,
-    required this.value,
+    this.value,
     this.label,
     this.changeMessage,
   });
@@ -33,12 +33,7 @@ class PasskitField extends Equatable {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'key': key,
-      'value': value,
-      'label': label,
-      'changeMessage': changeMessage
-    };
+    return {'key': key, 'value': value, 'label': label, 'changeMessage': changeMessage};
   }
 
   @override
